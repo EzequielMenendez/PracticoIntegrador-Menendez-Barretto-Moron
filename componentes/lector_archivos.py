@@ -3,7 +3,7 @@ RUTA_ARCHIVO = r"C:\Users\Santiago\PracticoIntegrador-Menendez-Barretto\Paises.c
 
 def leer_archivo():
     try:
-        with open(RUTA_ARCHIVO, "r", encoding="utf-8") as archivo:
+        with open(RUTA_ARCHIVO, "r", encoding="utf-8") as archivo: # abre el archivo en modo lectura y utf-8 (para evitar problemas con caracteres especiales)
             paises = []
             inicio = True
 
@@ -12,10 +12,10 @@ def leer_archivo():
                 if not inicio:  # salta el encabezado
                     nombre, poblacion, superficie, continente = linea.split(";")
                     paises.append({
-                        "nombre": nombre,
-                        "poblacion": int(poblacion),
-                        "superficie": int(superficie),
-                        "continente": continente
+                        "nombre": nombre, #str | clave
+                        "poblacion": int(poblacion), #int | clave
+                        "superficie": int(superficie), #int | clave
+                        "continente": continente #str | clave
                     })
                 inicio = False
 
