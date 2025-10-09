@@ -1,5 +1,5 @@
-#RUTA_ARCHIVO = r"C:\Users\ezeme\OneDrive\Desktop\Facultad\Python\PracticoIntegrador-Menendez-Barretto\Paises.csv" #Python ignora los caracteres de escape
-RUTA_ARCHIVO = r"C:\Users\Santiago\PracticoIntegrador-Menendez-Barretto\Paises.csv"
+RUTA_ARCHIVO = r"C:\Users\ezeme\OneDrive\Desktop\Facultad\Python\PracticoIntegrador-Menendez-Barretto\Paises.csv" #Python ignora los caracteres de escape
+#RUTA_ARCHIVO = r"C:\Users\Santiago\PracticoIntegrador-Menendez-Barretto\Paises.csv"
 
 def leer_archivo():
     try:
@@ -32,9 +32,3 @@ def leer_archivo():
             archivo.close()
         except NameError:
             pass
-
-
-# Prueba
-paises = leer_archivo()
-for p in paises:
-    print(p)
