@@ -1,2 +1,11 @@
-nombre;poblacion;superficie;continente
-Argentina;1;1;1
+Nombre;Poblacion;Superficie;Continente
+Argentina;45376763;2780400;America
+Japon;125800000;377975;Asia
+Brasil;213993437;8515767;America
+Alemania;83149300;357022;Europa
+Canada;40334000;9984670;America
+Australia;26842000;7692024;Oceania
+Egipto;112716000;1002450;Africa
+India;1428627663;3287263;Asia
+Sudafrica;62239000;1221037;Africa
+Francia;68233000;551695;Europa
