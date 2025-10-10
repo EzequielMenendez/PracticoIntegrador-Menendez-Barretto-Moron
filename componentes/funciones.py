@@ -1,5 +1,3 @@
-# Funciones para el programa
-from componentes.lector_archivos import leer_archivo
 from componentes.funciones import *
 
 #Función para ver países
@@ -141,10 +139,15 @@ def mostrar_estadisticas(paises):
     for c, cantidad in contador_continentes.items():
         print(f"{c}: {cantidad}")
 
-
+#Función para continuar al menú
 def tecla_para_continuar():
     input("Presione una tecla para continuar... ")
 
+#Función para imprimir una lista
 def imprimir_lista(lista):
     for elemento in lista:
         print(elemento)
+
+#Imprime un separador
+def separador():
+    print("===================================================")

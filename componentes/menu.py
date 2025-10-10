@@ -6,7 +6,7 @@ paises = leer_archivo()
 def menu():
     print(f"Se cargaron {len(paises)} países correctamente.")
     while True:
-        print("===============================================")
+        separador()
         imprimir_lista([
             "GESTIÓN DE PAISES",
             "MENÚ DE OPCIONES",
@@ -17,19 +17,19 @@ def menu():
             "5. Mostar estadisticas.",
             "0. Salir."
         ])
-        
+
         opcion = input("Ingrese la acción que desea realizar: ")
         if opcion == "1":
-            print("===============================================")
+            separador()
             ver_paises(paises)
             tecla_para_continuar()
         elif opcion == "2":
-            print("===============================================")
+            separador()
             buscar_pais(paises, input("Ingrese el nombre del país a buscar: "))
             tecla_para_continuar()
         elif opcion == "3":
             while True:
-                print("===============================================")
+                separador()
                 imprimir_lista([
                     "Filtar países por:",
                     "1. Continente",
@@ -40,8 +40,24 @@ def menu():
 
                 opcion_filtro = input("Ingrese el filtro a aplicar: ")
                 if opcion_filtro == "1":
-                    filtrar_por_continente(paises, input("Ingrese el continente a filtrar: "))
-                    tecla_para_continuar()
+                    while True:
+                        separador()
+                        imprimir_lista([
+                            "CONTINENTES:",
+                            "1. América",
+                            "2. Europa",
+                            "3. Asia",
+                            "4. África",
+                            "5. Oceanía"
+                        ])
+                        continentes= {1: "América", 2: "Europa", 3: "Asia", 4: "África", 5: "Oceanía"}
+                        opcion_continente = int(input("Ingrese el continente a filtrar: "))
+                        if opcion_continente >= 1 or opcion_continente <= 5:
+                            continente = continentes[opcion_continente]
+                            filtrar_por_continente(paises, continente)
+                            tecla_para_continuar()
+                            break
+                        print("Opción invalida")
                     break
                 elif opcion_filtro == "2":
                     filtrar_por_poblacion(paises, int(input("Ingrese la población mínima: ")), int(input("Ingrese la población máxima: "))) # despues validar con try except
@@ -58,7 +74,7 @@ def menu():
                     print("Acción invalida")
         elif opcion == "4":
             while True:
-                print("===============================================")
+                separador()
                 imprimir_lista([
                     "Ordenar países por:",
                     "1. Nombre",
@@ -90,7 +106,7 @@ def menu():
                 else:
                     print("Acción invalida")
         elif opcion == "5":
-            print("===============================================")
+            separador()
             mostrar_estadisticas(paises)
             tecla_para_continuar()
         elif opcion == "0":
