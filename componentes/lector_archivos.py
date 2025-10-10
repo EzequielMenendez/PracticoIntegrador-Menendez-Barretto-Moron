@@ -23,12 +23,17 @@ def leer_archivo():
 
     except FileNotFoundError:
         print(f"Error: no se encontró el archivo '{RUTA_ARCHIVO}'. Verificá la ruta o el nombre.")
+        return []  # devuelve lista vacia para que no se cierre el programa
     except PermissionError:
         print(f"Error: no tenés permisos para leer el archivo '{RUTA_ARCHIVO}'.")
+        return []
     except Exception as e:
         print(f"Ocurrió un error inesperado: {e}")
+        return []
     finally:
         try:
             archivo.close()
         except NameError:
             pass
+
+        
