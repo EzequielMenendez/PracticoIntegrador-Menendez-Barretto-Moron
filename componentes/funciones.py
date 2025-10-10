@@ -83,22 +83,17 @@ def filtrar_por_superficie(paises, min_sup, max_sup):
         ver_paises(encontrados)
 
 #Función para ordenar países
-def ordenar_paises(paises, tipo, ascendente):
+def ordenar_paises(paises, tipo, descendente = False):
     """"
-        Recibe una lista de paises, el tipo de ordenamiento y si el orden es ascendente o no
-        Evalua el tipo de ordenamiento y realiza el ordenamiento según el ascendente
+        Recibe una lista de paises, el tipo de ordenamiento y si el orden es descendente o no
+        Evalua el tipo de ordenamiento y realiza el ordenamiento según el descendente
     """
     print(f"\nORDENANDO POR {tipo.upper()}...\n")
 
     # Copiamos la lista para no modificar la original
     lista_ordenada = paises.copy()
-
-    if tipo == "nombre": # key=lambda es una funcion anonima que toma un parametro p (país) y devuelve p['nombre'], se usa en diccionarios.
-        lista_ordenada.sort(key=lambda p: p['nombre']) # Ordena alfabeticamente por nombre
-    elif tipo == "poblacion":
-        lista_ordenada.sort(key=lambda p: p['poblacion']) # Ordena numericamente por poblacion
-    elif tipo == "superficie":
-        lista_ordenada.sort(key=lambda p: p['superficie']) # Ordena numericamente por superficie
+    # key=lambda es una funcion anonima que toma un parametro p (país) y devuelve p['nombre'], se usa en diccionarios.
+    lista_ordenada.sort(key=lambda p: p[tipo], reverse=descendente) # Ordena alfabeticamente por según el tipo
 
     for p in lista_ordenada:
         print(f"{p['nombre']} - {p['poblacion']} habitantes - {p['superficie']} km2 - {p['continente']}")
@@ -149,3 +144,7 @@ def mostrar_estadisticas(paises):
 
 def tecla_para_continuar():
     input("Presione una tecla para continuar... ")
+
+def imprimir_lista(lista):
+    for elemento in lista:
+        print(elemento)
