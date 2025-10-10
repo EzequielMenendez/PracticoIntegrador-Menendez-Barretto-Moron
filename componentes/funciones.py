@@ -2,36 +2,92 @@
 from componentes.lector_archivos import leer_archivo
 from componentes.funciones import *
 
-def ver_todos(paises):
+#Función para ver países
+def ver_paises(paises):
+    """"
+        Recibe una lista de paises y los recorre para listarlos
+    """
     print("\nLISTA DE PAÍSES:\n")
     for pais in paises:
         print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km2 - {pais['continente']}")
 
+#Función para buscar un país
 def buscar_pais(paises, nombre_buscado):
-    print(f"\nBUSCANDO PAÍS... '{nombre_buscado}'\n")
+    """"
+        Recibe una lista de paises y la busqueda del nombre del país.
+        Recorre la lista de los paises y busca si el nombre coincide.
+        Muestra las coincidencias.
+    """
+    print(f"\nBUSCANDO PAÍSES... '{nombre_buscado}'\n")
     encontrados = []
     for pais in paises:
         if nombre_buscado.lower() in pais['nombre'].lower():
             encontrados.append(pais)
     if len(encontrados) == 0:
-        print("No se encontró el pais.")
+        print("No se encontraron países.")
     else:
-        for p in encontrados:
-            print(f"{p['nombre']} - {p['poblacion']} habitantes - {p['superficie']} km2 - {p['continente']}")
+        ver_paises(encontrados)
 
+#Función para filtar por continente
 def filtrar_por_continente(paises, continente):
+    """"
+        Recibe una lista de paises y el continente.
+        Recorre la lista de los paises y busca si el continente coincide.
+        Muestra las coincidencias.
+    """
     print(f"\nPAÍSES DEL CONTINENTE: {continente}\n")
+    encontrados = []
     for pais in paises:
         if pais['continente'].lower() == continente.lower():
-            print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km2")
+            encontrados.append(pais)
+    
+    if len(encontrados) == 0:
+        print(f"No se encontraron países en el continente {continente}.")
+    else:
+        ver_paises(encontrados)
 
-def filtrar_por_poblacion(paises, min_pob, max_pob): # filtrar por poblacion
+#Función para filtrar por población
+def filtrar_por_poblacion(paises, min_pob, max_pob):
+    """"
+        Recibe una lista de paises, el mínimo de población, y el máximo de población
+        Recorre la lista de los paises y busca los países entre el mínimo y el máximo de población
+        Muestra las coincidencias.
+    """
     print(f"\nPAÍSES CON POBLACION ENTRE {min_pob} Y {max_pob}\n")
+    encontrados = []
     for pais in paises:
         if min_pob <= pais['poblacion'] <= max_pob:
-            print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km2 - {pais['continente']}")
+            encontrados.append(pais)
+    
+    if len(encontrados) == 0:
+        print(f"No se encontraron países con población entre {min_pob} y {max_pob}.")
+    else:
+        ver_paises(encontrados)
 
-def ordenar_paises(paises, tipo):
+#Función para filtrar por superficie
+def filtrar_por_superficie(paises, min_sup, max_sup):
+    """"
+        Recibe una lista de paises, el mínimo de superficie, y el máximo de superficie
+        Recorre la lista de los paises y busca los países entre el mínimo y el máximo de superficie
+        Muestra las coincidencias.
+    """
+    print(f"\nPAÍSES CON UNA SUPERFICIE ENTRE {min_sup} Y {max_sup} KM2\n")
+    encontrados = []
+    for pais in paises:
+        if min_sup <= pais['superficie'] <= max_sup:
+            encontrados.append(pais)
+    
+    if len(encontrados) == 0:
+        print(f"No se encontraron países con una superficie entre {min_sup} y {max_sup}.")
+    else:
+        ver_paises(encontrados)
+
+#Función para ordenar países
+def ordenar_paises(paises, tipo, ascendente):
+    """"
+        Recibe una lista de paises, el tipo de ordenamiento y si el orden es ascendente o no
+        Evalua el tipo de ordenamiento y realiza el ordenamiento según el ascendente
+    """
     print(f"\nORDENANDO POR {tipo.upper()}...\n")
 
     # Copiamos la lista para no modificar la original
@@ -47,7 +103,12 @@ def ordenar_paises(paises, tipo):
     for p in lista_ordenada:
         print(f"{p['nombre']} - {p['poblacion']} habitantes - {p['superficie']} km2 - {p['continente']}")
 
+#Función para mostrar estadisticas
 def mostrar_estadisticas(paises):
+    """
+        Recibe la lista de paises
+        Calcula las diferentes estadicticas y muestra los resultados
+    """
     print("\nESTADÍSTICAS:\n")
 
     mayor_pob = paises[0]
