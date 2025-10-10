@@ -5,7 +5,7 @@ from componentes.funciones import *
 def ver_todos(paises):
     print("\nLISTA DE PAÍSES:\n")
     for pais in paises:
-        print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km² - {pais['continente']}")
+        print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km2 - {pais['continente']}")
 
 def buscar_pais(paises, nombre_buscado):
     print(f"\nBUSCANDO PAÍS... '{nombre_buscado}'\n")
@@ -23,13 +23,13 @@ def filtrar_por_continente(paises, continente):
     print(f"\nPAÍSES DEL CONTINENTE: {continente}\n")
     for pais in paises:
         if pais['continente'].lower() == continente.lower():
-            print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km²")
+            print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km2")
 
 def filtrar_por_poblacion(paises, min_pob, max_pob): # filtrar por poblacion
     print(f"\nPAÍSES CON POBLACION ENTRE {min_pob} Y {max_pob}\n")
     for pais in paises:
         if min_pob <= pais['poblacion'] <= max_pob:
-            print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km² - {pais['continente']}")
+            print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km2 - {pais['continente']}")
 
 def ordenar_paises(paises, tipo):
     print(f"\nORDENANDO POR {tipo.upper()}...\n")
@@ -45,7 +45,7 @@ def ordenar_paises(paises, tipo):
         lista_ordenada.sort(key=lambda p: p['superficie']) # Ordena numericamente por superficie
 
     for p in lista_ordenada:
-        print(f"{p['nombre']} - {p['poblacion']} habitantes - {p['superficie']} km² - {p['continente']}")
+        print(f"{p['nombre']} - {p['poblacion']} habitantes - {p['superficie']} km2 - {p['continente']}")
 
 def mostrar_estadisticas(paises):
     print("\nESTADÍSTICAS:\n")
