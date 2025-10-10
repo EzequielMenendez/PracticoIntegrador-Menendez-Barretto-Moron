@@ -57,21 +57,28 @@ def menu():
                             filtrar_por_continente(paises, continente)
                             tecla_para_continuar()
                             break
-                        print("Opción invalida")
+                        print("Opción invalida 🔴")
                     break
                 elif opcion_filtro == "2":
-                    filtrar_por_poblacion(paises, int(input("Ingrese la población mínima: ")), int(input("Ingrese la población máxima: "))) # despues validar con try except
+                    #filtrar_por_poblacion(paises, int(input("Ingrese la población mínima: ")), int(input("Ingrese la población máxima: "))) # despues validar con try except
+                    min_pob = pedir_entero("Ingrese la población mínima: ")
+                    max_pob = pedir_entero("Ingrese la población máxima: ")
+                    filtrar_por_poblacion(paises, min_pob, max_pob)
+
                     tecla_para_continuar()
                     break
                 elif opcion_filtro == "3":
-                    filtrar_por_superficie(paises, int(input("Ingrese la superficie mínima: ")), int(input("Ingrese la superficie máxima: ")))
+                    #filtrar_por_superficie(paises, int(input("Ingrese la superficie mínima: ")), int(input("Ingrese la superficie máxima: ")))
+                    min_sup = pedir_entero("Ingrese la superficie minima: ")
+                    max_sup = pedir_entero("Ingrese la superficie maxima: ")
+                    filtrar_por_superficie(paises, min_sup, max_sup)
                     tecla_para_continuar()
                     break
                 elif opcion_filtro == "0":
                     print("Volviendo al menú...")
                     break
                 else:
-                    print("Acción invalida")
+                    print("Acción invalida 🔴")
         elif opcion == "4":
             while True:
                 separador()
@@ -104,13 +111,13 @@ def menu():
                     print("Volviendo al menú...")
                     break
                 else:
-                    print("Acción invalida")
+                    print("Acción invalida 🔴")
         elif opcion == "5":
             separador()
             mostrar_estadisticas(paises)
             tecla_para_continuar()
         elif opcion == "0":
-            print("Saliendo...")
+            print("Saliendo... 🌐")
             break
         else:
-            print("Acción invalida")
+            print("Acción invalida 🔴")

@@ -148,6 +148,16 @@ def imprimir_lista(lista):
     for elemento in lista:
         print(elemento)
 
+def pedir_entero(mensaje):
+    """Pide un numero entero por consola y controla errores."""
+    while True:
+        try:
+            valor = int(input(mensaje))
+            return valor
+        except ValueError:
+            print("Error: debe ingresar un numero entero valido. 🔴")
+
+
 #Imprime un separador
 def separador():
     print("===================================================")
