@@ -1,5 +1,6 @@
 #RUTA_ARCHIVO = r"C:\Users\ezeme\OneDrive\Desktop\Facultad\Python\PracticoIntegrador-Menendez-Barretto\Paises.csv" #Python ignora los caracteres de escape
-RUTA_ARCHIVO = r"C:\Users\Santiago\PracticoIntegrador-Menendez-Barretto\Paises.csv"
+RUTA_ARCHIVO = r"C:\Users\Santiago\PracticoIntegrador-Menendez-Barretto\Paises.csv" 
+import csv
 
 def leer_archivo():
     try:
@@ -10,7 +11,7 @@ def leer_archivo():
             for linea in archivo:
                 linea = linea.strip()
                 if not inicio:  # salta el encabezado
-                    nombre, poblacion, superficie, continente = linea.split(";")
+                    nombre, poblacion, superficie, continente = linea.split(",")
                     paises.append({
                         "nombre": nombre, #str | clave
                         "poblacion": int(poblacion), #int | clave
