@@ -5,9 +5,7 @@ paises = leer_archivo()
 
 def menu():
     print(f"Se cargaron {len(paises)} países correctamente.")
-    while True:
-        # Muestra el menú principal
-        separador()
+    while True: # Mostrar el menu principal
         imprimir_lista([
             "GESTIÓN DE PAISES",
             "MENÚ DE OPCIONES",
@@ -21,21 +19,16 @@ def menu():
 
         opcion = input("Ingrese la acción que desea realizar: ")
 
-        # Estructura de control principal del menú
+        # Estructura de control principal del menu
         match opcion:
-            case "1": # Ver todos los países
-                separador()
+            case "1": # Ver todos los paises
                 ver_paises(paises)
-                tecla_para_continuar()
 
             case "2": # Buscar un pais
-                separador()
                 buscar_pais(paises, input("Ingrese el nombre del país a buscar: "))
-                tecla_para_continuar()
 
             case "3": # Submenu de filtros
                 while True:
-                    separador()
                     imprimir_lista([
                         "Filtar países por:",
                         "1. Continente",
@@ -49,7 +42,6 @@ def menu():
                     match opcion_filtro:
                         case "1": # Filtrar por continente
                             while True:
-                                separador()
                                 imprimir_lista([
                                     "CONTINENTES:",
                                     "1. América",
@@ -71,7 +63,6 @@ def menu():
                                     if 1 <= opcion_continente <= 5: # Valir que este dentro del rango 1–5
                                         continente = continentes[opcion_continente]
                                         filtrar_por_continente(paises, continente)
-                                        tecla_para_continuar()
                                         break
                                     else:
                                         print("Opción invalida 🔴")
@@ -83,14 +74,12 @@ def menu():
                             min_pob = pedir_entero("Ingrese la población mínima: ")
                             max_pob = pedir_entero("Ingrese la población máxima: ")
                             filtrar_por_poblacion(paises, min_pob, max_pob)
-                            tecla_para_continuar()
                             break
 
                         case "3": # Filtrar por superficie
                             min_sup = pedir_entero("Ingrese la superficie mínima: ")
                             max_sup = pedir_entero("Ingrese la superficie máxima: ")
                             filtrar_por_superficie(paises, min_sup, max_sup)
-                            tecla_para_continuar()
                             break
 
                         case "0": # Volver al menu principal
@@ -102,7 +91,6 @@ def menu():
 
             case "4": # Submenu de ordenamientos
                 while True:
-                    separador()
                     imprimir_lista([
                         "Ordenar países por:",
                         "1. Nombre",
@@ -116,21 +104,18 @@ def menu():
                     match opcion_ordenar:
                         case "1": # Ordenar por nombre
                             ordenar_paises(paises, "nombre")
-                            tecla_para_continuar()
                             break
 
                         case "2": # Ordenar por poblacion
                             descendente = input("Ingrese 1 si quiere un orden descendente o cualquier otra tecla si quiere orden ascendente: ")
                             descendente = descendente == "1"
                             ordenar_paises(paises, "poblacion", descendente)
-                            tecla_para_continuar()
                             break
 
                         case "3": # Ordenar por superficie
                             descendente = input("Ingrese 1 si quiere un orden descendente o cualquier otra tecla si quiere orden ascendente: ")
                             descendente = descendente == "1"
                             ordenar_paises(paises, "superficie", descendente)
-                            tecla_para_continuar()
                             break
 
                         case "0": # Volver al menu principal
@@ -141,9 +126,7 @@ def menu():
                             print("Acción invalida 🔴")
 
             case "5": # Mostrar estadisticas
-                separador()
                 mostrar_estadisticas(paises)
-                tecla_para_continuar()
 
             case "0": # Salir del programa
                 print("Saliendo... 🌐")

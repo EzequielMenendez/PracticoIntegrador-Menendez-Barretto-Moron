@@ -5,9 +5,11 @@ def ver_paises(paises):
     """"
         Recibe una lista de paises y los recorre para listarlos
     """
+    separador()
     print("\nLISTA DE PAÍSES:\n")
     for pais in paises:
         print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km2 - {pais['continente']}")
+    tecla_para_continuar()
 
 #Función para buscar un país
 def buscar_pais(paises, nombre_buscado):
@@ -16,6 +18,7 @@ def buscar_pais(paises, nombre_buscado):
         Recorre la lista de los paises y busca si el nombre coincide.
         Muestra las coincidencias.
     """
+    separador()
     print(f"\nBUSCANDO PAÍSES... '{nombre_buscado}'\n")
     encontrados = []
     for pais in paises:
@@ -25,6 +28,7 @@ def buscar_pais(paises, nombre_buscado):
         print("No se encontraron países.")
     else:
         ver_paises(encontrados)
+    tecla_para_continuar()
 
 #Función para filtar por continente
 def filtrar_por_continente(paises, continente):
@@ -43,6 +47,7 @@ def filtrar_por_continente(paises, continente):
         print(f"No se encontraron países en el continente {continente}.")
     else:
         ver_paises(encontrados)
+    tecla_para_continuar()
 
 #Función para filtrar por población
 def filtrar_por_poblacion(paises, min_pob, max_pob):
@@ -61,6 +66,7 @@ def filtrar_por_poblacion(paises, min_pob, max_pob):
         print(f"No se encontraron países con población entre {min_pob} y {max_pob}.")
     else:
         ver_paises(encontrados)
+    tecla_para_continuar()
 
 #Función para filtrar por superficie
 def filtrar_por_superficie(paises, min_sup, max_sup):
@@ -79,6 +85,7 @@ def filtrar_por_superficie(paises, min_sup, max_sup):
         print(f"No se encontraron países con una superficie entre {min_sup} y {max_sup}.")
     else:
         ver_paises(encontrados)
+    tecla_para_continuar()
 
 #Función para ordenar países
 def ordenar_paises(paises, tipo, descendente = False):
@@ -95,6 +102,7 @@ def ordenar_paises(paises, tipo, descendente = False):
 
     for p in lista_ordenada:
         print(f"{p['nombre']} - {p['poblacion']} habitantes - {p['superficie']} km2 - {p['continente']}")
+    tecla_para_continuar()
 
 #Función para mostrar estadisticas
 def mostrar_estadisticas(paises):
@@ -102,6 +110,7 @@ def mostrar_estadisticas(paises):
         Recibe la lista de paises
         Calcula las diferentes estadicticas y muestra los resultados
     """
+    separador()
     print("\nESTADÍSTICAS:\n")
 
     mayor_pob = paises[0]
@@ -138,6 +147,7 @@ def mostrar_estadisticas(paises):
     print("\nCantidad de países por continente:")
     for c, cantidad in contador_continentes.items():
         print(f"{c}: {cantidad}")
+    tecla_para_continuar()
 
 #Función para continuar al menú
 def tecla_para_continuar():
@@ -145,6 +155,7 @@ def tecla_para_continuar():
 
 #Función para imprimir una lista
 def imprimir_lista(lista):
+    separador()
     for elemento in lista:
         print(elemento)
 
