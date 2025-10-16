@@ -30,10 +30,5 @@ def leer_archivo():
     except Exception as e:
         print(f"Ocurrió un error inesperado: {e}")
         return []
-    finally:
-        try:
-            archivo.close()
-        except NameError:
-            pass
 
         
