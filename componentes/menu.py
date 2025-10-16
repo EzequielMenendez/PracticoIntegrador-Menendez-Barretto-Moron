@@ -4,6 +4,8 @@ from componentes.funciones import *
 paises = leer_archivo()
 
 def menu():
+    if len(paises) == 0:
+        print("No se encontraron paiíes cargados en el archivo.")
     print(f"Se cargaron {len(paises)} países correctamente.")
     while True: # Mostrar el menu principal
         imprimir_lista([
