@@ -11,19 +11,14 @@
 
 # Características
 
-    Búsqueda por nombre: Encuentra países por coincidencia parcial (insensible a mayúsculas).
-
-    Filtrado por continente: Filtra países de América, Europa, Asia, África u Oceanía.
-
-    Filtrado por población: Permite establecer rangos de población mínima y máxima.
-
-    Filtrado por superficie: Define rangos de superficie en km2.
-
-    Ordenamiento múltiple: Ordena por nombre, población o superficie (ascendente/descendente).
-
-    Estadísticas generales: Visualiza métricas globales (mayor/menor población, promedios, distribución por continente).
-
-    Validación de datos: Manejo robusto de errores en entradas del usuario y formato del CSV.
+    Visualización general: Muestra todos los países cargados desde el CSV.
+    Búsqueda por nombre: Encuentra países por coincidencia parcial (sin importar mayúsculas o minúsculas).
+    Filtrado por continente: Permite seleccionar América, Europa, Asia, África u Oceanía.
+    Filtrado por población: Define rangos de población mínima y máxima.
+    Filtrado por superficie: Define rangos de superficie mínima y máxima en km².
+    Ordenamiento múltiple: Ordena la lista por nombre, población o superficie (ascendente o descendente).
+    Estadísticas globales: Calcula el país con mayor y menor población, promedios de población y superficie, y cantidad de países por continente.
+    Validación robusta: Usa funciones de entrada seguras (pedir_entero, try/except) para evitar cierres por errores del usuario o formato.
 
 # Requisitos
 
@@ -87,50 +82,117 @@
     Opciones de menú inexistentes
 
 # Ejemplos de uso
-    1. Buscar país por nombre
-    Ingrese nombre (o parte del nombre) del país: ar
-    --- Resultado: Argentina, Paraguay
+    ==Ver todos los países (1.)
+    LISTA DE PAÍSES:
+    Argentina - 45376763 habitantes - 2780400 km2 - América
+    Japon - 125800000 habitantes - 377975 km2 - Asia
+    Brasil - 213993437 habitantes - 8515767 km2 - América
+    Alemania - 83149300 habitantes - 357022 km2 - Europa
+    Canada - 40334000 habitantes - 9984670 km2 - América
+    Australia - 26842000 habitantes - 7692024 km2 - Oceanía
+    Egipto - 112716000 habitantes - 1002450 km2 - África
+    India - 1428627663 habitantes - 3287263 km2 - Asia
+    Sudafrica - 62239000 habitantes - 1221037 km2 - África
+    Francia - 68233000 habitantes - 551695 km2 - Europa
 
-    2. Filtrar por continente
-    Ingrese continente: Europa
-    --- Resultado: España, Francia, Alemania
 
-    3. Filtrar por población
-    Población mínima: 40000000
-    Población máxima: 100000000
-    --- Resultado: Países del CSV con población entre 40 y 100 millones de habitantes
+    ==Buscar un país (2.)
+    BUSCANDO PAÍSES... 'ar'
+    LISTA DE PAÍSES:
+    Argentina - 45376763 habitantes - 2780400 km2 - América
 
-    4. Filtrar por superficie
-    Superficie mínima (km2): 500000
-    Superficie máxima (km2): 10000000
-    --- Resultado: Países con superficie entre 500.000 y 10.000.000 km2
 
-    5. Ordenar países
-    Ordenar por:
-    a. Nombre
-    b. Población
-    c. Superficie
-    Elija (a/b/c): b
-    ¿Ascendente (a) o Descendente (d)? d
-    --- Resultado: Países ordenados por población (mayor a menor)
+    ==Filtrar países (3.)
+    +Por continente (3.1)
+    Ingrese el filtro a aplicar: 1
+    Ingrese el continente a filtrar: 2
 
-    6. Estadísticas generales
-    ESTADÍSTICAS GENERALES
-    - País con mayor población: China (1,439,323,776)
-    - País con menor población: Nueva Zelanda (5,084,300)
-    - Población promedio: 217,493,956
-    - Superficie promedio: 3,291,162 km2
+    PAÍSES DEL CONTINENTE: Europa
+    LISTA DE PAÍSES:
+    Alemania - 83149300 habitantes - 357022 km2 - Europa
+    Francia - 68233000 habitantes - 551695 km2 - Europa
 
+    +Por población (3.2)
+    Ingrese la población mínima: 40000000
+    Ingrese la población máxima: 100000000
+
+    PAÍSES CON POBLACION ENTRE 40000000 Y 100000000
+    LISTA DE PAÍSES:
+    Argentina - 45376763 habitantes - 2780400 km2 - América
+    Alemania - 83149300 habitantes - 357022 km2 - Europa
+    Canada - 40334000 habitantes - 9984670 km2 - América
+    Sudafrica - 62239000 habitantes - 1221037 km2 - África
+    Francia - 68233000 habitantes - 551695 km2 - Europa
+
+    +Por superficie (3.3)
+    Ingrese la superficie mínima: 25000 
+    Ingrese la superficie máxima: 50000
+
+    PAÍSES CON UNA SUPERFICIE ENTRE 25000 Y 50000 KM2
+    No se encontraron países con una superficie entre 25000 y 50000.
+
+
+    ==Ordenar países (4.)
+    +Por nombre (4.1)
+    Ingrese el ordenamiento a aplicar: 1
+    ORDENANDO POR NOMBRE...
+    Alemania - 83149300 habitantes - 357022 km2 - Europa
+    Argentina - 45376763 habitantes - 2780400 km2 - América
+    Australia - 26842000 habitantes - 7692024 km2 - Oceanía
+    Brasil - 213993437 habitantes - 8515767 km2 - América
+    Canada - 40334000 habitantes - 9984670 km2 - América
+    Egipto - 112716000 habitantes - 1002450 km2 - África
+    Francia - 68233000 habitantes - 551695 km2 - Europa
+    India - 1428627663 habitantes - 3287263 km2 - Asia
+    Japon - 125800000 habitantes - 377975 km2 - Asia
+    Sudafrica - 62239000 habitantes - 1221037 km2 - África
+
+    +Por población (4.2)
+    Ingrese el ordenamiento a aplicar: 2
+    Ingrese 1 si quiere un orden descendente o cualquier otra tecla si quiere orden ascendente: 1
+
+    ORDENANDO POR POBLACION...
+    India - 1428627663 habitantes - 3287263 km2 - Asia
+    Brasil - 213993437 habitantes - 8515767 km2 - América
+    Japon - 125800000 habitantes - 377975 km2 - Asia
+    Egipto - 112716000 habitantes - 1002450 km2 - África
+    Alemania - 83149300 habitantes - 357022 km2 - Europa
+    Francia - 68233000 habitantes - 551695 km2 - Europa
+    Sudafrica - 62239000 habitantes - 1221037 km2 - África
+    Argentina - 45376763 habitantes - 2780400 km2 - América
+    Canada - 40334000 habitantes - 9984670 km2 - América
+    Australia - 26842000 habitantes - 7692024 km2 - Oceanía
+
+    +Por superficie (4.3)
+    Ingrese el ordenamiento a aplicar: 3
+    Ingrese 1 si quiere un orden descendente o cualquier otra tecla si quiere orden ascendente: 1
+
+    ORDENANDO POR SUPERFICIE...
+    Canada - 40334000 habitantes - 9984670 km2 - América
+    Brasil - 213993437 habitantes - 8515767 km2 - América
+    Australia - 26842000 habitantes - 7692024 km2 - Oceanía
+    India - 1428627663 habitantes - 3287263 km2 - Asia
+    Argentina - 45376763 habitantes - 2780400 km2 - América
+    Sudafrica - 62239000 habitantes - 1221037 km2 - África
+    Egipto - 112716000 habitantes - 1002450 km2 - África
+    Francia - 68233000 habitantes - 551695 km2 - Europa
+    Japon - 125800000 habitantes - 377975 km2 - Asia
+    Alemania - 83149300 habitantes - 357022 km2 - Europa
+
+
+    ==Mostrar estadísticas
+    ESTADÍSTICAS:
+    País con mayor población: India (1428627663)
+    País con menor población: Australia (26842000)
+    Promedio de población: 220731116
+    Promedio de superficie: 3577030
     Cantidad de países por continente:
-    - América: 3
-    - Europa: 2
-    - Asia: 2
-    - África: 2
-    - Oceanía: 1
+    América: 3
+    Asia: 2
+    Europa: 2
+    Oceanía: 1
+    África: 2
 
-    Formato de salida
-
-    Los resultados se muestran en texto tabulado y legible, con separación por continentes, estadísticas numéricas y validación de entrada.
 
 # Participación de integrantes
 
