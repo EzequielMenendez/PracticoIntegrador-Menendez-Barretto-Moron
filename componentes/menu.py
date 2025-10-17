@@ -1,5 +1,6 @@
-from componentes.lector_archivos import leer_archivo
 from componentes.funciones import *
+from componentes.lector_archivos import leer_archivo
+
 
 paises = leer_archivo()
 

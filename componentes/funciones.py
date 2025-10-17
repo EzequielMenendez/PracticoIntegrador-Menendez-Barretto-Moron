@@ -1,5 +1,3 @@
-from componentes.funciones import *
-
 #Función para ver países
 def ver_paises(paises):
     """"
