@@ -253,7 +253,7 @@ El sistema incluye validaciones para:
     País con menor población: Australia (26842000)
     Promedio de población: 220731116
     Promedio de superficie: 3577030
-    
+
     Cantidad de países por continente:
     América: 3
     Asia: 2
@@ -263,10 +263,11 @@ El sistema incluye validaciones para:
 
 ## Participación de integrantes
 
-    Ezequiel Menéndez: Estructura del proyecto, lectura de archivos y manejo de errores.
-    Santiago Barretto: Implementación del menú interactivo, funciones de filtrado, ordenamiento y validación de datos.
+Ezequiel Menéndez: Estructura del proyecto, lectura de archivos y manejo de errores.
+
+Santiago Barretto: Implementación del menú interactivo, funciones de filtrado, ordenamiento y validación de datos.
 
 ## Link del video
 
-    🎥 Video explicativo disponible en el repositorio oficial del proyecto: xxxxxxx.com
-    🔗 https://github.com/EzequielMenendez/PracticoIntegrador-Menendez-Barretto
+- 🎥 Video explicativo disponible en el repositorio oficial del proyecto: xxxxxxx.com
+- 🔗 https://github.com/EzequielMenendez/PracticoIntegrador-Menendez-Barretto
