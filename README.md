@@ -84,8 +84,12 @@ Retorna una lista de diccionarios con los datos de cada país.
 Ejemplo de lectura:
 
     {"nombre": "Argentina", "poblacion": 45376763, "superficie": 2780400, "continente": "América"}
-Manejo de Errores
-El sistema incluye validaciones para:
+
+### Validaciones
+
+validaciones.py
+
+Incluye las validaciones y manejo de errores para el lector de archivos:
 
 - Archivo CSV no encontrado o mal ubicado
 - Archivo CSV vacío
