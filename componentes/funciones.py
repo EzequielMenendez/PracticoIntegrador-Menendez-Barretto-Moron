@@ -24,9 +24,9 @@ def buscar_pais(paises, nombre_buscado):
             encontrados.append(pais)
     if len(encontrados) == 0:
         print("No se encontraron países.")
+        tecla_para_continuar()
     else:
         ver_paises(encontrados)
-    tecla_para_continuar()
 
 #Función para filtar por continente
 def filtrar_por_continente(paises, continente):
@@ -43,9 +43,9 @@ def filtrar_por_continente(paises, continente):
     
     if len(encontrados) == 0:
         print(f"No se encontraron países en el continente {continente}.")
+        tecla_para_continuar()
     else:
         ver_paises(encontrados)
-    tecla_para_continuar()
 
 #Función para filtrar por población
 def filtrar_por_poblacion(paises, min_pob, max_pob):
@@ -62,9 +62,9 @@ def filtrar_por_poblacion(paises, min_pob, max_pob):
     
     if len(encontrados) == 0:
         print(f"No se encontraron países con población entre {min_pob} y {max_pob}.")
+        tecla_para_continuar()
     else:
         ver_paises(encontrados)
-    tecla_para_continuar()
 
 #Función para filtrar por superficie
 def filtrar_por_superficie(paises, min_sup, max_sup):
@@ -81,9 +81,9 @@ def filtrar_por_superficie(paises, min_sup, max_sup):
     
     if len(encontrados) == 0:
         print(f"No se encontraron países con una superficie entre {min_sup} y {max_sup}.")
+        tecla_para_continuar()
     else:
         ver_paises(encontrados)
-    tecla_para_continuar()
 
 #Función para ordenar países
 def ordenar_paises(paises, tipo, descendente = False):
