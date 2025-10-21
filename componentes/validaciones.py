@@ -1,7 +1,7 @@
 import unicodedata
 
 #Función para validar cada linea del archivo
-def validar_linea(linea, contador):
+def validar_linea(linea, contador, paises):
     if contador == 1:
         return None
 
@@ -24,6 +24,10 @@ def validar_linea(linea, contador):
     if not nombre_valido:
         print(f"Se ignoro el país número {contador}. El nombre no puede estar vacio y no puede contener números o caracteres especiales.")
         return None
+    
+    nombre_unico = validar_repetido(nombre, paises)
+    if not nombre_unico:
+        print(f"Se ignoro el país número {contador}. El país se encuentra repetido.")
     
     # Validaciones del dato población
 
@@ -75,10 +79,10 @@ def parsear_numero(num):
 
 #Función para validar un caracter
 def validar_texto(str):
-    if str == "":
+    if str.strip() == "":
         return False
     
-    permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789áéíóúÁÉÍÓÚñÑ "
+    permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚñÑ "
     
     return all(c in permitidos for c in str)
 
@@ -95,3 +99,11 @@ def buscar_continente(continente, continentes):
             continente = cont #Parseo el continente
 
     return continente
+
+#Función para validar que un país no se repita
+def validar_repetido(nombre, paises):
+    valido = True
+    for pais in paises:
+        if pais["nombre"].lower() == nombre.lower():
+            valido = False
+    return valido

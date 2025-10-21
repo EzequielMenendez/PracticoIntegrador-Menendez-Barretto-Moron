@@ -8,7 +8,7 @@ def leer_archivo():
             paises = []
             contador = 1
             for linea in archivo:
-                pais = validar_linea(linea, contador)
+                pais = validar_linea(linea, contador, paises)
                 if pais:
                     paises.append(pais)
                 contador += 1
