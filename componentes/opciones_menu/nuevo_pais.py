@@ -5,6 +5,9 @@ RUTA_ARCHIVO = r"Paises.csv"
 
 #Función para agregar un nuevo país
 def nuevo_pais(paises):
+    """
+        Pide por consola los datos: nombre, poblacion, superficie y continente para crear un nuevo país
+    """
     titulo("AGREGAR NUEVO PAÍS")
     #Pido y valido los datos de un país
     nombre = pedir_pais("Ingrese el nombre del país: ", paises)

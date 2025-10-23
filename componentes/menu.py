@@ -1,9 +1,10 @@
 from componentes.opciones_menu.ver_paises import ver_paises
-from componentes.opciones_menu.buscar_pais import buscar_pais
+from componentes.opciones_menu.buscar_pais import buscar_paises
 from componentes.opciones_menu.filtrar_paises import menu_filtrar
 from componentes.opciones_menu.ordenar_pais import menu_ordenar
 from componentes.opciones_menu.mostrar_estadisticas import mostrar_estadisticas
 from componentes.opciones_menu.nuevo_pais import nuevo_pais
+from componentes.opciones_menu.editar_pais import editar_pais
 from componentes.funciones import *
 from componentes.lector_archivos import leer_archivo
 
@@ -23,6 +24,7 @@ def menu():
             "4. Ordenar países.",
             "5. Mostrar estadisticas.",
             "6. Agregar nuevo país",
+            "7. Editar un país existente",
             "0. Salir."
         ])
 
@@ -33,7 +35,7 @@ def menu():
             case "1": # Ver todos los paises
                 ver_paises(paises)
             case "2": # Buscar un pais
-                buscar_pais(paises, input("Ingrese el nombre del país a buscar: "))
+                buscar_paises(paises, input("Ingrese el nombre del país a buscar: "))
             case "3": # Submenu de filtros
                 menu_filtrar(paises)
             case "4": # Submenu de ordenamientos
@@ -42,6 +44,8 @@ def menu():
                 mostrar_estadisticas(paises)
             case "6":# Agregar nuevo país
                 nuevo_pais(paises)
+            case "7":#Editar un país
+                editar_pais(paises)
             case "0": # Salir del programa
                 print("Saliendo... 🌐")
                 break

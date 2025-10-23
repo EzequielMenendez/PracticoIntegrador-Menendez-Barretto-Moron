@@ -1,7 +1,7 @@
 from componentes.funciones import *
 
 #Función para buscar un país
-def buscar_pais(paises, nombre_buscado):
+def buscar_paises(paises, nombre_buscado):
     """
         Recibe una lista de paises y la busqueda del nombre del país.
         Recorre la lista de los paises y busca si el nombre coincide.
