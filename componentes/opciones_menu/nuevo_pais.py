@@ -1,7 +1,6 @@
 from componentes.funciones import *
 from componentes.validaciones import *
-
-RUTA_ARCHIVO = r"Paises.csv" 
+from componentes.lector_archivos import RUTA_ARCHIVO
 
 #Función para agregar un nuevo país
 def nuevo_pais(paises):

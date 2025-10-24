@@ -2,54 +2,43 @@ from componentes.funciones import *
 from componentes.validaciones import *
 from componentes.lector_archivos import RUTA_ARCHIVO
 
-#Función para editar un país
-def editar_pais(paises):
+#Función para eliminar un país
+def eliminar_pais(paises):
     """
         Se le pide al usuario ingresar un país y se busca con exactitud
         En caso de existir se busca la linea donde esta en el csv
-        Luego se piden los nuevos datos a modificar y se reemplazan
+        Luego se reescribe el csv sin esa linea y se elimina de la lista de paises
     """
-    titulo("EDITAR PAÍS")
+    titulo("ELIMINAR PAÍS")
     #Busco el país en la lista
     pais, indice_pais = buscar_pais(paises)
     if not pais:
         tecla_para_continuar()
         return
-
+    
     try:
         #Abro el archivo y leo todas las líneas
         with open(RUTA_ARCHIVO, "r", encoding="utf-8") as archivo:
             lineas = archivo.readlines()
 
         #Busco el país en el csv
-        linea_editar = buscar_linea(lineas, pais)
-        if not linea_editar:
+        linea_eliminar = buscar_linea(lineas, pais)
+        if not linea_eliminar:
             print("No se encontró el país en el csv.")
             tecla_para_continuar()
             return
 
-        #Pido al usuario los nuevos datos
-        print(f"Se encontró el país {pais}")
-        poblacion = pedir_entero("Ingrese la nueva cantidad de población: ")
-        superficie = pedir_entero("Ingrese la nueva cantidad de superficie: ")
-        continente = pedir_continente("Ingrese el nuevo continente: ")
-
-        #Actualizo la línea encontrada
-        lineas[linea_editar] = f"{pais},{poblacion},{superficie},{continente}\n"
+        #Elimino la linea encontrada
+        del lineas[linea_eliminar]
 
         #Reescribo el archivo
         with open(RUTA_ARCHIVO, "w", encoding="utf-8") as archivo:
             archivo.writelines(lineas)
 
         #Actualizo la lista de paises
-        paises[indice_pais] = {
-            "nombre": pais,
-            "poblacion": poblacion,
-            "superficie": superficie,
-            "continente": continente
-        }
+        del paises[indice_pais]
 
-        titulo(f"Los datos del país '{pais}' fueron actualizados correctamente.")
+        titulo(f"El país '{pais}' se elimino correctamente.")
 
     except FileNotFoundError:
         print(f"Error: no se encontró el archivo '{RUTA_ARCHIVO}'. Verificá la ruta o el nombre.")

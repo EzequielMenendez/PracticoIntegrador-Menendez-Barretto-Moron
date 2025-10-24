@@ -67,3 +67,36 @@ def titulo(texto):
     separador()
     print(f"{texto}\n")
     separador()
+
+#Función para buscar una línea en el csv
+def buscar_linea(lineas, pais):
+    """
+        Recibe una lista de líneas y el país a buscar
+        Recorre las líneas y si el país coincide guarda el número de linea y lo retorna
+    """
+    #Busca el país en el csv
+    for i, linea in enumerate(lineas):#enumerate sirve para recorrer una lista y al mismo tiempo obtener el indice
+        datos = linea.strip().split(",")
+        if len(datos) and datos[0].lower() == pais.lower():
+            return i
+
+#Busca un país por coincidencia exacta
+def buscar_pais(paises):
+    """
+        Pide por consola un país a buscar, y lo busca por coincidencia exacta
+        Devuelve el nombre del país y su índice
+    """
+    busqueda = input("Ingrese el nombre del país a buscar: ")
+    indice_encontrado = None
+    pais_encontrado = None
+
+    for i, pais in enumerate(paises):
+        if busqueda.lower() == pais['nombre'].lower():
+            indice_encontrado = i
+            pais_encontrado = pais['nombre']
+            break
+
+    if not indice_encontrado:
+        print(f"No se encontró el país {busqueda}.")
+
+    return pais_encontrado, indice_encontrado
