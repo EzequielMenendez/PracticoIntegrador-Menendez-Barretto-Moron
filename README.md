@@ -24,10 +24,6 @@ Ofrece una interfaz interactiva con múltiples opciones de búsqueda, filtrado y
 ## Requisitos
 
 - Python 3.10 o superior (utiliza la sintaxis match-case)
-- Codificación UTF-8
-- Módulos estándar incluidos en Python:
-    - os (manejo de rutas)
-    - csv (lectura de archivos de texto)
 
 ## Descripción de Archivos
 
@@ -56,28 +52,46 @@ Opciones disponibles:
 - Filtrar países (por continente, población o superficie)
 - Ordenar países
 - Mostrar estadísticas
+- Agregar nuevo país
+- Editar un país existente
+- Eliminar un país
 - Salir del programa
+
+### Opciones Menu
+
+la carpeta opciones_menu contiene archivos con la lógica principal de cada opción.
+
+- ver_paises.py: contiene la función para mostrar los países cargados.
+- buscar_pais.py: contiene la función para buscar países por nombre.
+- filtrar_países.py: contiene las funciones para filtrar países por rango de población, rango de superficie y continente.
+- ordenar_paises.py: contiene las funciónes para ordenar por nombre, población, superficie y continente.
+- mostrar_estadisticas.py: contiene la función que calcula y muestra las estadísticas globales.
+- nuevo_pais.py: contiene la función que agrega un nuevo país al csv.
+- editar_pais.py: contiene la función que edita un país del csv.
+- eliminar_pais.py: contiene la función que elimina un país del csv.
 
 ### Funciones
 
 funciones.py
 
-Contiene toda la lógica del sistema:
+Contiene la lógica reutilizable del sistema:
 
-- ver_paises(): Muestra todos los países cargados.
-- buscar_pais(): Búsqueda parcial de un país por nombre.
-- filtrar_por_continente(): Filtra por continente.
-- filtrar_por_poblacion(): Filtra dentro de un rango de población.
-- filtrar_por_superficie(): Filtra dentro de un rango de superficie.
-- ordenar_paises(): Ordena por nombre, población o superficie.
-- mostrar_estadisticas(): Calcula y muestra estadísticas globales.
-- pedir_entero(): Valida entradas numéricas del usuario.
+- listar_paises(): Lista todos los países y sus datos.
+- tecla_para_continuar(): imprime un input para continuar acciones.
+- imprimir_lista(): Imprime una lista.
+- pedir_entero(): Pide un entero al usuario hasta que sea valido.
+- pedir_pais(): Pide el nombre de un país a un usuario hasta que sea valido.
+- pedir_continente(): Pide el nombre de un continente a un usuario hasta que sea valido.
+- separador(): Imprime una linea separadora.
+- titulo(): Imprime el formato de los titulos.
+- buscar_linea(): Busca una linea de una lista por nombre.
+- buscar_pais(): Busca un único país con exactitud.
 
 ### Lector de archivos
 
 lector_archivos.py
 
-Encargado de leer y validar el archivo CSV (Paises.csv).
+Encargado de leer el archivo CSV (Paises.csv).
 Usa try-except para manejar errores de archivo inexistente o mal formateado.
 Ignora el encabezado y convierte los valores numéricos (poblacion, superficie) a enteros.
 Retorna una lista de diccionarios con los datos de cada país.
@@ -89,10 +103,8 @@ Ejemplo de lectura:
 
 validaciones.py
 
-Incluye las validaciones y manejo de errores para el lector de archivos:
+Incluye las validaciones para para el lector de archivos y otras funciones:
 
-- Archivo CSV no encontrado o mal ubicado
-- Archivo CSV vacío
 - Datos mal formateados (valores no numéricos o delimitadores erróneos)
 - Entradas vacías del usuario
 - Valores no enteros en población o superficie
@@ -110,7 +122,11 @@ Incluye las validaciones y manejo de errores para el lector de archivos:
     3. Filtrar países.
     4. Ordenar países.
     5. Mostar estadisticas.
+    6. Agregar nuevo país
+    7. Editar un país existente
+    8. Eliminar un país
     0. Salir.
+    Ingrese l
 
 ### Opción 1. Ver todos los países
 
@@ -264,6 +280,49 @@ Incluye las validaciones y manejo de errores para el lector de archivos:
     Europa: 2
     Oceanía: 1
     África: 2
+
+### Opción 6. Agregar nuevo país
+
+### Opción 7. Editar un país existente
+    EDITAR PAÍS
+
+    ===================================================
+
+    Ingrese el nombre del país a buscar: japon
+    Se encontró el país Japon
+    Ingrese la nueva cantidad de población: 1200000
+    Ingrese la nueva cantidad de superficie: 1200000
+    Ingrese el nuevo continente: Oceania
+    ===================================================
+
+    Los datos del país 'Japon' fueron actualizados correctamente.
+
+Si ahora se busca japon:
+
+    BUSCANDO PAÍSES... 'japon'
+
+    ===================================================
+
+    Japon - 1200000 habitantes - 1200000 km2 - Oceanía
+
+### Opción 8. Eliminar un país
+
+    ELIMINAR PAÍS
+
+    ===================================================
+
+    Ingrese el nombre del país a buscar: francia
+    ===================================================
+
+    El país 'Francia' se elimino correctamente.
+
+Si ahora busco Francia
+
+    BUSCANDO PAÍSES... 'Francia'
+
+    ===================================================
+
+    No se encontraron países.
 
 ## Participación de integrantes
 
