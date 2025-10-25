@@ -93,7 +93,18 @@ lector_archivos.py
 
 Encargado de leer el archivo CSV (Paises.csv).
 Usa try-except para manejar errores de archivo inexistente o mal formateado.
-Ignora el encabezado y convierte los valores numéricos (poblacion, superficie) a enteros.
+Utiliza la función validar_linea para que ignorar las lineas invalidas. Se ignoran las siguientes lineas:
+
+- Encabezado
+- lineas vacias
+- cantidad de campos incorrectos(deben ser 4)
+- nombre con formato invalido(números, caracteres especiales, vacio)
+- nombre repetido
+- población con formato invalido(debe ser un número positivo)
+- superficie con formato invalido(debe ser un número positivo)
+- continente invalido(números, caracteres especiales, vacio)
+- continente inexistente
+
 Retorna una lista de diccionarios con los datos de cada país.
 Ejemplo de lectura:
 
@@ -105,11 +116,12 @@ validaciones.py
 
 Incluye las validaciones para para el lector de archivos y otras funciones:
 
-- Datos mal formateados (valores no numéricos o delimitadores erróneos)
-- Entradas vacías del usuario
-- Valores no enteros en población o superficie
-- Rangos inválidos (mínimo mayor que máximo)
-- Opciones de menú inexistentes
+- validar_linea(): Valida que la linea csv sea valida y en caso de serlo devuelve la linea formateada en diccionario.
+- parsear_numero(): Parsea un string a entero.
+- validar_texto(): valida que un texto sea valido.
+- buscar_continente(): valida si un continente ingresado existe, y devuelve el continente formateado.
+- parsear_text(): parsea un texto a lower y sin tíldes.
+- validar_repetido(): valida que el nombre de un país no se encuentre en la lista de paises.
 
 ## Ejemplos de uso
 

@@ -43,7 +43,7 @@ def pedir_pais(mensaje, paises):
 #Función para pedir y validar un continente
 def pedir_continente(mensaje):
     """Recibe un string por consola, valida el texto y que sea un continente existente"""
-    continentes = ["América","Europa","Asia","África","Oceanía"]
+    continentes = ("América","Europa","Asia","África","Oceanía")
     while True:
         valor = input(mensaje)
         texto_valido = validar_texto(valor)
