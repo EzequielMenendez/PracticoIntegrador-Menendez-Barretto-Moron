@@ -6,9 +6,10 @@ from componentes.opciones_menu.mostrar_estadisticas import mostrar_estadisticas
 from componentes.opciones_menu.nuevo_pais import nuevo_pais
 from componentes.opciones_menu.editar_pais import editar_pais
 from componentes.opciones_menu.eliminar_pais import eliminar_pais
+from componentes.opciones_menu.importar_pais import importar_pais_api
+
 from componentes.funciones import *
 from componentes.lector_archivos import leer_archivo
-
 paises = leer_archivo()
 
 def menu():
@@ -27,6 +28,7 @@ def menu():
             "6. Agregar nuevo país",
             "7. Editar un país existente",
             "8. Eliminar un país",
+            "9. Importar Pais desde la api",
             "0. Salir."
         ])
 
@@ -50,6 +52,8 @@ def menu():
                 editar_pais(paises)
             case "8":#Eliminar un país
                 eliminar_pais(paises)
+            case "9":
+                importar_pais_api(paises)
             case "0": # Salir del programa
                 print("Saliendo... 🌐")
                 break
