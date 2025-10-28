@@ -28,7 +28,7 @@ def menu():
             "6. Agregar nuevo país",
             "7. Editar un país existente",
             "8. Eliminar un país",
-            "9. Importar Pais desde la api",
+            "9. Importar Pais desde la API", #https://restcountries.com/v3.1/all?fields=name
             "0. Salir."
         ])
 

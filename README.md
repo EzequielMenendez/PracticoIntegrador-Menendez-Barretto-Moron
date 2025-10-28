@@ -340,6 +340,8 @@ Si ahora busco Francia
 
 Ezequiel Menéndez: Estructura del proyecto, lectura de archivos y manejo de errores.
 
+Nicolas Morón: Implementación de la API.
+
 Santiago Barretto: Implementación del menú interactivo, funciones de filtrado, ordenamiento y validación de datos.
 
 ## Link del video
