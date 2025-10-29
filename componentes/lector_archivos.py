@@ -4,18 +4,20 @@ RUTA_ARCHIVO = r"Paises.csv"
 
 def leer_archivo():
     try:
-        with open(RUTA_ARCHIVO, "a+", encoding="utf-8") as archivo: # abre el archivo en modo lectura y utf-8 (para evitar problemas con caracteres especiales)
-            archivo.seek(0) 
+        # Abre el archivo en modo "a+" para crear si no existe y permitir leer/escribir
+        with open(RUTA_ARCHIVO, "a+", encoding="utf-8") as archivo:
+            archivo.seek(0) # seek hace que el cursor vuelva al inicio del archivo
             lineas = archivo.readlines()
+            
             if not lineas:
                 print(f"Advertencia: Archivo '{RUTA_ARCHIVO}' no encontrado o vacío. Escribiendo cabecera.")
                 archivo.write("nombre,poblacion,superficie,continente\n")
                 return []
             
             paises = []
-            contador = 1
-            for linea in archivo:
-                pais = validar_linea(linea, contador, paises)
+            contador = 1 # iterar desde la segunda línea para ignorar cabecera.
+            for linea in lineas[1:]: 
+                pais = validar_linea(linea, contador, paises) # validar y crear objeto pais
                 if pais:
                     paises.append(pais)
                 contador += 1
