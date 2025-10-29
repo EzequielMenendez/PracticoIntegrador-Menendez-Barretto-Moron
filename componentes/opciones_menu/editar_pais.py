@@ -9,6 +9,8 @@ def editar_pais(paises):
         En caso de existir se busca la linea donde esta en el csv
         Luego se piden los nuevos datos a modificar y se reemplazan
     """
+    if sin_paises(paises):
+        return
     titulo("EDITAR PAÍS")
     #Busco el país en la lista
     pais, indice_pais = buscar_pais(paises)

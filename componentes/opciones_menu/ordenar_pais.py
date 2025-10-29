@@ -1,6 +1,8 @@
 from componentes.funciones import *
 
 def menu_ordenar(paises):
+    if sin_paises(paises):
+        return
     while True:
         imprimir_lista([
             "Ordenar países por:",
@@ -18,15 +20,11 @@ def menu_ordenar(paises):
                 break
 
             case "2": # Ordenar por poblacion
-                descendente = input("Ingrese 1 si quiere un orden descendente o cualquier otra tecla si quiere orden ascendente: ")
-                descendente = descendente == "1"
-                ordenar_paises(paises, "poblacion", descendente)
+                ordenar_paises(paises, "poblacion")
                 break
 
             case "3": # Ordenar por superficie
-                descendente = input("Ingrese 1 si quiere un orden descendente o cualquier otra tecla si quiere orden ascendente: ")
-                descendente = descendente == "1"
-                ordenar_paises(paises, "superficie", descendente)
+                ordenar_paises(paises, "superficie")
                 break
 
             case "0": # Volver al menu principal
@@ -37,12 +35,15 @@ def menu_ordenar(paises):
                 print("Acción invalida 🔴")
 
 #Función para ordenar países
-def ordenar_paises(paises, tipo, descendente = False):
+def ordenar_paises(paises, tipo):
     """
         Recibe una lista de paises, el tipo de ordenamiento y si el orden es descendente o no
         Evalua el tipo de ordenamiento y realiza el ordenamiento según el descendente
     """
     titulo(f"ORDENANDO POR {tipo.upper()}...")
+
+    descendente = input("Ingrese '1' si quiere un orden descendente o cualquier otra tecla si quiere orden ascendente: ")
+    descendente = descendente == "1"
 
     # Copiamos la lista para no modificar la original
     lista_ordenada = paises.copy()

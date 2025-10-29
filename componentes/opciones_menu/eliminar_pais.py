@@ -9,6 +9,8 @@ def eliminar_pais(paises):
         En caso de existir se busca la linea donde esta en el csv
         Luego se reescribe el csv sin esa linea y se elimina de la lista de paises
     """
+    if sin_paises(paises):
+        return
     titulo("ELIMINAR PAÍS")
     #Busco el país en la lista
     pais, indice_pais = buscar_pais(paises)

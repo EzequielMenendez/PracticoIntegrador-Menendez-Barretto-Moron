@@ -6,6 +6,8 @@ def mostrar_estadisticas(paises):
         Recibe la lista de paises
         Calcula las diferentes estadicticas y muestra los resultados
     """
+    if sin_paises(paises):
+        return
     titulo("ESTADÍSTICAS:")
 
     mayor_pob = paises[0]

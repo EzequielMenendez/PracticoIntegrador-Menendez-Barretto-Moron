@@ -4,7 +4,14 @@ RUTA_ARCHIVO = r"Paises.csv"
 
 def leer_archivo():
     try:
-        with open(RUTA_ARCHIVO, "r", encoding="utf-8") as archivo: # abre el archivo en modo lectura y utf-8 (para evitar problemas con caracteres especiales)
+        with open(RUTA_ARCHIVO, "a+", encoding="utf-8") as archivo: # abre el archivo en modo lectura y utf-8 (para evitar problemas con caracteres especiales)
+            archivo.seek(0) 
+            lineas = archivo.readlines()
+            if not lineas:
+                print(f"Advertencia: Archivo '{RUTA_ARCHIVO}' no encontrado o vacío. Escribiendo cabecera.")
+                archivo.write("nombre,poblacion,superficie,continente\n")
+                return []
+            
             paises = []
             contador = 1
             for linea in archivo:

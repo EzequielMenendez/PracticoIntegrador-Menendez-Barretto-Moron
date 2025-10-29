@@ -55,6 +55,7 @@ Opciones disponibles:
 - Agregar nuevo país
 - Editar un país existente
 - Eliminar un país
+- Importar país desde API
 - Salir del programa
 
 ### Opciones Menu
@@ -69,6 +70,7 @@ la carpeta opciones_menu contiene archivos con la lógica principal de cada opci
 - nuevo_pais.py: contiene la función que agrega un nuevo país al csv.
 - editar_pais.py: contiene la función que edita un país del csv.
 - eliminar_pais.py: contiene la función que elimina un país del csv.
+- importar_pais.py: contiene la función que importa un país desde la API.
 
 ### Funciones
 
@@ -93,6 +95,7 @@ lector_archivos.py
 
 Encargado de leer el archivo CSV (Paises.csv).
 Usa try-except para manejar errores de archivo inexistente o mal formateado.
+Crea el archivo en caso de no encontrarlo.
 Utiliza la función validar_linea para que ignorar las lineas invalidas. Se ignoran las siguientes lineas:
 
 - Encabezado
@@ -123,6 +126,15 @@ Incluye las validaciones para para el lector de archivos y otras funciones:
 - parsear_text(): parsea un texto a lower y sin tíldes.
 - validar_repetido(): valida que el nombre de un país no se encuentre en la lista de paises.
 
+### Api
+
+api.py
+
+Incluye la lógica de comunicación con la API y parseo de datos de la API a la app.
+
+- listar_nombres_paises_api(): Consulta la API y muestra una lista de todos los nombres de países disponibles para que el usuario sepa qué buscar.
+- buscar_pais_api(): busca un país en la API y devuelve los datos formateados.
+
 ## Ejemplos de uso
 
 ### Muestra del menú
@@ -137,6 +149,7 @@ Incluye las validaciones para para el lector de archivos y otras funciones:
     6. Agregar nuevo país
     7. Editar un país existente
     8. Eliminar un país
+    9. Importar país desde la API
     0. Salir.
     Ingrese l
 
@@ -230,6 +243,8 @@ Incluye las validaciones para para el lector de archivos y otras funciones:
 
 #### Opción 4,1. Por nombre
 
+    Ingrese 1 si quiere un orden descendente o cualquier otra tecla si quiere orden ascendente: 1
+
     ORDENANDO POR NOMBRE...
 
     Alemania - 83149300 habitantes - 357022 km2 - Europa
@@ -295,7 +310,24 @@ Incluye las validaciones para para el lector de archivos y otras funciones:
 
 ### Opción 6. Agregar nuevo país
 
+    AGREGAR NUEVO PAÍS
+
+    ===================================================
+
+    Ingrese el nombre del país: perú
+    Ingrese la cantidad de población: 1200000
+    Ingrese la cantidad de superficie: 1400000
+    Ingrese el continente: america
+    ===================================================
+
+    PAÍS CREADO EXÍTOSAMENTE
+
+    ===================================================
+
+    perú - 1200000 habitantes - 1400000 km2 - América
+
 ### Opción 7. Editar un país existente
+
     EDITAR PAÍS
 
     ===================================================
@@ -336,6 +368,37 @@ Si ahora busco Francia
 
     No se encontraron países.
 
+### Opción 9. Importar país desde la API
+
+    ===================================================
+
+    LISTA DE PAÍSES DISPONIBLES EN LA API
+
+    ===================================================
+
+    Conectando a https://restcountries.com/v3.1/all?fields=name...
+
+    Países encontrados:
+
+    - Afghanistan | - Albania | - Algeria | - American Samoa
+    - Andorra | - Angola | - Anguilla | - Antarctica
+    etc...
+
+    ===================================================
+
+    IMPORTAR PAÍS DESDE API
+
+    ===================================================
+
+    Ingrese el nombre del país a importar: Venezuela
+    ===================================================
+
+    PAÍS IMPORTADO Y AGREGADO EXITOSAMENTE
+
+    ===================================================
+
+    Venezuela - 28517000 habitantes - 916445 km2 - América
+
 ## Participación de integrantes
 
 Ezequiel Menéndez: Estructura del proyecto, lectura de archivos y manejo de errores.
@@ -347,4 +410,4 @@ Santiago Barretto: Implementación del menú interactivo, funciones de filtrado,
 ## Link del video
 
 - 🎥 Video explicativo disponible en el repositorio oficial del proyecto: xxxxxxx.com
-- 🔗 https://github.com/EzequielMenendez/PracticoIntegrador-Menendez-Barretto
+- 🔗 https://github.com/EzequielMenendez/PracticoIntegrador-Menendez-Barretto-Moron

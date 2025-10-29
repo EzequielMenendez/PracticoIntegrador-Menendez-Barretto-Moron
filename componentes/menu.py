@@ -28,7 +28,7 @@ def menu():
             "6. Agregar nuevo país",
             "7. Editar un país existente",
             "8. Eliminar un país",
-            "9. Importar Pais desde la API", #https://restcountries.com/v3.1/all?fields=name
+            "9. Importar país desde la API", #https://restcountries.com/v3.1/all?fields=name
             "0. Salir."
         ])
 
@@ -39,7 +39,7 @@ def menu():
             case "1": # Ver todos los paises
                 ver_paises(paises)
             case "2": # Buscar un pais
-                buscar_paises(paises, input("Ingrese el nombre del país a buscar: "))
+                buscar_paises(paises)
             case "3": # Submenu de filtros
                 menu_filtrar(paises)
             case "4": # Submenu de ordenamientos

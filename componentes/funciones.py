@@ -77,7 +77,7 @@ def buscar_linea(lineas, pais):
     #Busca el país en el csv
     for i, linea in enumerate(lineas):#enumerate sirve para recorrer una lista y al mismo tiempo obtener el indice
         datos = linea.strip().split(",")
-        if len(datos) and datos[0].lower() == pais.lower():
+        if len(datos) and parsear_texto(datos[0]) == parsear_texto(pais):
             return i
 
 #Busca un país por coincidencia exacta
@@ -91,7 +91,7 @@ def buscar_pais(paises):
     pais_encontrado = None
 
     for i, pais in enumerate(paises):
-        if busqueda.lower() == pais['nombre'].lower():
+        if parsear_texto(busqueda) == parsear_texto(pais['nombre']):
             indice_encontrado = i
             pais_encontrado = pais['nombre']
             break
@@ -100,3 +100,9 @@ def buscar_pais(paises):
         print(f"No se encontró el país {busqueda}.")
 
     return pais_encontrado, indice_encontrado
+
+def sin_paises(paises):
+    if not len(paises):
+        print("No hay países disponibles. Primero crea o importa uno.")
+        tecla_para_continuar()
+    return len(paises) == 0

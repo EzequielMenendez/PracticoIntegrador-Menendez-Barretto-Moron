@@ -2,6 +2,8 @@ from componentes.funciones import *
 
 #Función que muestra el menú para filtrar países
 def menu_filtrar(paises):
+    if sin_paises(paises):
+        return
     while True:
         imprimir_lista([
             "Filtar países por:",

@@ -102,7 +102,6 @@ def buscar_continente(continente, continentes):
 
     for cont in continentes:
         cont_parseado = parsear_texto(cont)
-
         if continente_parseado == cont_parseado:#Si el continente se encuentra dentro de la lista de continentes
             continente = cont #Parseo el continente
 
@@ -111,14 +110,16 @@ def buscar_continente(continente, continentes):
 #Función para parsear un texto a lower y sin tíldes
 def parsear_texto(str):
     """Recibe un str y lo parsea a lower y sin tíldes"""
-    unicodedata.normalize('NFD', str.lower())#unicode se utiliza para parsear caracteres a un tipo de datos, en este caso 'NFD' que separa las letras de sus tíldes
-    return str.encode('ascii', 'ignore').decode('utf-8')#encode parsea el texto a ASCII, e ignora los caracteres no validos con tíltes. con decode lo vuelvo a parsear a utf-8
+    # unicode se utiliza para normalizar caracteres, en este caso 'NFD' que separa las letras de sus tíldes
+    texto_normalizado = unicodedata.normalize('NFD', str.lower())
+    # Se filtran los caracteres de categoría 'Mn' (Marcas no espaciadas, como las tildes separadas) y .join() vuelve a unir las letras base en un nuevo string.
+    return "".join(c for c in texto_normalizado if unicodedata.category(c) != 'Mn')
 
 #Función para validar que un país no se repita
 def validar_repetido(nombre, paises):
     """Recibe un  nombre y valida que no se encuentre en la lista de paises"""
     valido = True
     for pais in paises:
-        if pais["nombre"].lower() == nombre.lower():
+        if parsear_texto(pais["nombre"]) == parsear_texto(nombre):
             valido = False
     return valido

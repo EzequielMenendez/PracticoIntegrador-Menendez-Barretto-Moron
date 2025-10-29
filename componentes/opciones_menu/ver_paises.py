@@ -5,6 +5,8 @@ def ver_paises(paises):
     """
         Recibe una lista de paises y los recorre para listarlos
     """
+    if sin_paises(paises):
+        return
     titulo("LISTA DE PAÍSES:")
     for pais in paises:
         print(f"{pais['nombre']} - {pais['poblacion']} habitantes - {pais['superficie']} km2 - {pais['continente']}")
