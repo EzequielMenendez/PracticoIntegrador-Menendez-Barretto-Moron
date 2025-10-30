@@ -48,12 +48,12 @@ def menu_filtrar(paises):
 
             case "2": # Filtrar por poblacion
                 max_pob, min_pob = pedir_rango("población")
-                filtrar_por_poblacion(paises, min_pob, max_pob)
+                filtrar_por_rango(paises, min_pob, max_pob, "población")
                 break
 
             case "3": # Filtrar por superficie
                 max_sup, min_sup = pedir_rango("superficie")
-                filtrar_por_superficie(paises, min_sup, max_sup)
+                filtrar_por_rango(paises, min_sup, max_sup, "superficie")
                 break
 
             case "0": # Volver al menu principal
@@ -83,39 +83,20 @@ def filtrar_por_continente(paises, continente):
     tecla_para_continuar()
 
 #Función para filtrar por población
-def filtrar_por_poblacion(paises, min_pob, max_pob):
+def filtrar_por_rango(paises, min, max, tipo):
     """
-        Recibe una lista de paises, el mínimo de población, y el máximo de población
+        Recibe una lista de paises, el mínimo, y el máximo del rango y el tipo de dato a filtrar
         Recorre la lista de los paises y busca los países entre el mínimo y el máximo de población
         Muestra las coincidencias.
     """
-    titulo(f"PAÍSES CON POBLACION ENTRE {min_pob} Y {max_pob}")
+    titulo(f"PAÍSES CON POBLACION ENTRE {min} Y {max}")
     encontrados = []
     for pais in paises:
-        if min_pob <= pais['poblacion'] <= max_pob:
+        if min <= pais[tipo] <= max:
             encontrados.append(pais)
     
     if len(encontrados) == 0:
-        print(f"No se encontraron países con población entre {min_pob} y {max_pob}.")
-    else:
-        listar_paises(encontrados)
-    tecla_para_continuar()
-
-#Función para filtrar por superficie
-def filtrar_por_superficie(paises, min_sup, max_sup):
-    """
-        Recibe una lista de paises, el mínimo de superficie, y el máximo de superficie
-        Recorre la lista de los paises y busca los países entre el mínimo y el máximo de superficie
-        Muestra las coincidencias.
-    """
-    titulo(f"PAÍSES CON UNA SUPERFICIE ENTRE {min_sup} Y {max_sup} KM2")
-    encontrados = []
-    for pais in paises:
-        if min_sup <= pais['superficie'] <= max_sup:
-            encontrados.append(pais)
-    
-    if len(encontrados) == 0:
-        print(f"No se encontraron países con una superficie entre {min_sup} y {max_sup}.")
+        print(f"No se encontraron países con {tipo} entre {min} y {max}.")
     else:
         listar_paises(encontrados)
     tecla_para_continuar()
