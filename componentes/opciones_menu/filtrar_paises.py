@@ -92,7 +92,7 @@ def filtrar_por_rango(paises, min, max, tipo):
     titulo(f"PAÍSES CON POBLACION ENTRE {min} Y {max}")
     encontrados = []
     for pais in paises:
-        if min <= pais[tipo] <= max:
+        if min <= pais[parsear_texto(tipo)] <= max:
             encontrados.append(pais)
     
     if len(encontrados) == 0:
