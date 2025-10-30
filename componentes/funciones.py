@@ -25,6 +25,19 @@ def pedir_entero(mensaje):
         else:
             return valor
 
+#Función para pedir un rango de valores
+def pedir_rango(tipo):
+    """
+    Pide al usuario un rango numérico (mínimo y máximo) y lo valida.
+    Retorna el valor máximo y el mínimo.
+    """
+    while True:
+        min = pedir_entero(f"Ingrese la {tipo} mínima: ")
+        max = pedir_entero(f"Ingrese la {tipo} máxima: ")
+        if max >= min:
+            return max, min
+        print("Error: El valor máximo debe ser mayor o igual al mínimo. Intente de nuevo.")
+
 #Función para pedir y validar un país
 def pedir_pais(mensaje, paises):
     """Pide un string por consola, valida el texto y que el país no este repetido"""

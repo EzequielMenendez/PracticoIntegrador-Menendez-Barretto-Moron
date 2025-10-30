@@ -47,14 +47,12 @@ def menu_filtrar(paises):
                 break
 
             case "2": # Filtrar por poblacion
-                min_pob = pedir_entero("Ingrese la población mínima: ")
-                max_pob = pedir_entero("Ingrese la población máxima: ")
+                max_pob, min_pob = pedir_rango("población")
                 filtrar_por_poblacion(paises, min_pob, max_pob)
                 break
 
             case "3": # Filtrar por superficie
-                min_sup = pedir_entero("Ingrese la superficie mínima: ")
-                max_sup = pedir_entero("Ingrese la superficie máxima: ")
+                max_sup, min_sup = pedir_rango("superficie")
                 filtrar_por_superficie(paises, min_sup, max_sup)
                 break
 
