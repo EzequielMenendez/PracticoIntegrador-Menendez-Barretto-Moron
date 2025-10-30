@@ -16,7 +16,7 @@ def leer_archivo():
             
             paises = []
             contador = 1 # iterar desde la segunda línea para ignorar cabecera.
-            for linea in lineas[1:]: 
+            for linea in lineas: 
                 pais = validar_linea(linea, contador, paises) # validar y crear objeto pais
                 if pais:
                     paises.append(pais)

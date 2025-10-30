@@ -6,6 +6,8 @@ def validar_linea(linea, contador, paises):
         Recibe la linea a validar, un contador(int) y la lista de los paises
         Valida que la linea csv sea valida y en caso de serlo devuelve la linea formateada en diccionario
     """
+    if contador == 1:
+        return None
 
     linea = linea.strip()
 
