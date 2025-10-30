@@ -18,12 +18,6 @@ def importar_pais_api(paises):
     nombre = pedir_pais("Ingrese el nombre del país a importar: ", paises)
     nombre_api = nombre.replace(" ", "%20")
 
-    # Se valida que el país no exista ya en tu CSV
-    if not validar_repetido(nombre, paises):
-        print(f"Error: '{nombre}' ya existe en tu lista de países. 🔴")
-        tecla_para_continuar()
-        return
-
     # Se busca el país en la API
     datos_api = buscar_país_api(nombre_api)
     if not datos_api:
