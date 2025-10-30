@@ -73,7 +73,7 @@ def filtrar_por_continente(paises, continente):
     titulo(f"PAÍSES DEL CONTINENTE: {continente}")
     encontrados = []
     for pais in paises:
-        if pais['continente'].lower() == continente.lower():
+        if parsear_texto(pais['continente']) == parsear_texto(continente):
             encontrados.append(pais)
     
     if len(encontrados) == 0:
