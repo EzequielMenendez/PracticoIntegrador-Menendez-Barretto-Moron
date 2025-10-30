@@ -17,11 +17,6 @@ def importar_pais_api(paises):
 
     nombre = pedir_pais("Ingrese el nombre del país a importar: ", paises)
     nombre_api = nombre.replace(" ", "%20")
-
-    # Se busca el país en la API
-    datos_api = buscar_país_api(nombre_api)
-    if not datos_api:
-        return
     
     #Se busca el país en la api
     pais = buscar_país_api(nombre_api)
