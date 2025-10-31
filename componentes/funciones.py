@@ -108,8 +108,8 @@ def buscar_pais(paises):
             indice_encontrado = i
             pais_encontrado = pais['nombre']
             break
-
-    if not indice_encontrado:
+    
+    if indice_encontrado == None:
         print(f"No se encontró el país {busqueda}.")
 
     return pais_encontrado, indice_encontrado
