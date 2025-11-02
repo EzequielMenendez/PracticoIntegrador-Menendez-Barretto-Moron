@@ -409,5 +409,5 @@ Santiago Barretto: Implementación del menú interactivo, funciones de filtrado,
 
 ## Link del video
 
-- 🎥 Video explicativo disponible en el repositorio oficial del proyecto: xxxxxxx.com
+- 🎥 Video explicativo disponible en el repositorio oficial del proyecto: https://drive.google.com/file/d/1kauhpz4eczwO78pw91gyKGEUBiG45nV-/view?usp=sharing
 - 🔗 https://github.com/EzequielMenendez/PracticoIntegrador-Menendez-Barretto-Moron
